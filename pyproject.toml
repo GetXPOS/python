@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "getxpos"
+version = "0.1.0"
+description = "Python SDK for XPOS — instant public URLs via SSH tunnels"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+authors = [{name = "XPOS", email = "info@xpos.dev"}]
+keywords = ["tunnel", "xpos", "ssh", "ngrok", "localhost", "public-url", "development"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet",
+    "Topic :: Software Development",
+    "Topic :: System :: Networking",
+]
+
+[project.urls]
+Homepage = "https://xpos.dev"
+Repository = "https://github.com/getxpos/python"
+
+[project.scripts]
+xpos = "getxpos.cli:main"
