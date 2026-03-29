@@ -61,8 +61,8 @@ class XposTunnel:
         return [
             "ssh",
             "-p", "443",
-            "-o", "StrictHostKeyChecking=no",
-            "-o", "UserKnownHostsFile=/dev/null",
+            "-o", "StrictHostKeyChecking=accept-new",
+            "-o", "UserKnownHostsFile=~/.ssh/xpos_known_hosts",
             "-o", "LogLevel=ERROR",
             "-o", "ConnectTimeout=10",
             "-R", remote_forward,
