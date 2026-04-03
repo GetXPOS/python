@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "getxpos"
-version = "0.1.3"
+version = "0.1.5"
 description = "Python SDK for XPOS — instant public URLs via SSH tunnels"
 readme = "README.md"
 license = "MIT"
