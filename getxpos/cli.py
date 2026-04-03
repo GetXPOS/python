@@ -2,6 +2,7 @@ import argparse
 import os
 import signal
 import sys
+import time
 
 from .tunnel import XposTunnel
 from .utils import resolve_token, format_expiry, should_filter_line, parse_error
@@ -296,10 +297,10 @@ def main():
 
     tunnel.on_close = on_close
 
-    # Block main thread
+    # Block main thread — use polling so signal handlers can run on Windows
     try:
-        if tunnel._process:
-            tunnel._process.wait()
+        while tunnel._process and tunnel._process.poll() is None:
+            time.sleep(0.2)
     except KeyboardInterrupt:
         shutdown()
 
