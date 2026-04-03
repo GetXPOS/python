@@ -20,7 +20,7 @@ KILL_TIMEOUT = 3
 class XposTunnel:
     """SSH tunnel to XPOS. Manages an SSH subprocess."""
 
-    def __init__(self, port, host="localhost", token=None, subdomain=None,
+    def __init__(self, port, host="127.0.0.1", token=None, subdomain=None,
                  domain=None, mode="http", server=DEFAULT_SERVER,
                  on_connect=None, on_close=None, on_output=None):
         if not port:

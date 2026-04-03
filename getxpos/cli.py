@@ -89,7 +89,7 @@ def _show_help(c, version):
         pip=c["green"]("python -m getxpos"),
         options=c["bold"]("OPTIONS"),
         req=c["red"]("(required)"),
-        def_host=c["gray"]("(default: localhost)"),
+        def_host=c["gray"]("(default: 127.0.0.1)"),
         def_token=c["gray"]("(or set XPOS_TOKEN env)"),
         def_sub=c["gray"]("(Pro+, requires token)"),
         def_dom=c["gray"]("(Business, requires token)"),
@@ -244,7 +244,7 @@ def main():
     # Create tunnel
     tunnel = XposTunnel(
         port=port,
-        host=args.get("host") if args.get("host") not in (None, True) else "localhost",
+        host=args.get("host") if args.get("host") not in (None, True) else "127.0.0.1",
         token=args.get("token") if args.get("token") is not True else None,
         subdomain=subdomain if subdomain is not True else None,
         domain=domain if domain is not True else None,

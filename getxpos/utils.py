@@ -19,7 +19,7 @@ def build_ssh_user(token, mode):
     return token + "+tcp" if mode == "tcp" else token
 
 
-def build_remote_forward(port, host="localhost", subdomain=None, domain=None):
+def build_remote_forward(port, host="127.0.0.1", subdomain=None, domain=None):
     """Build the -R remote forward string for SSH."""
     if domain:
         return "{}:80:{}:{}".format(domain, host, port)
