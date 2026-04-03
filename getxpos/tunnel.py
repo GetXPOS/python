@@ -73,7 +73,7 @@ class XposTunnel:
         """Read from a stream in a thread, accumulate buffer."""
         try:
             while True:
-                chunk = stream.read(4096)
+                chunk = stream.read1(4096)
                 if not chunk:
                     break
                 text = chunk.decode("utf-8", errors="replace")
