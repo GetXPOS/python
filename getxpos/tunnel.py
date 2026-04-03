@@ -34,6 +34,15 @@ class XposTunnel:
         self.mode = mode
         self.server = server or DEFAULT_SERVER
 
+        if self.subdomain and self.domain:
+            raise ValueError("subdomain and domain are mutually exclusive")
+        if self.mode not in ("http", "tcp"):
+            raise ValueError('mode must be "http" or "tcp"')
+        if (self.subdomain or self.domain) and not self.token:
+            raise ValueError(
+                "{} requires a token".format("domain" if self.domain else "subdomain")
+            )
+
         self.url = None
         self.expires_at = None
         self.connected = False
@@ -119,6 +128,12 @@ class XposTunnel:
         Returns the tunnel URL. Raises RuntimeError on failure."""
         if self.connected:
             raise RuntimeError("Tunnel is already connected")
+
+        self.url = None
+        self.expires_at = None
+        self._buffer = ""
+        self._error = None
+        self._settled = threading.Event()
 
         args = self._build_args()
         kwargs = {

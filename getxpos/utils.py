@@ -101,6 +101,6 @@ def should_filter_line(line):
         return True
     if re.match(r"^Tunnel closed", trimmed, re.IGNORECASE):
         return True
-    if re.match(r"^\d+\.\d+\.\d+\.\d+:\d+$", trimmed):
+    if re.match(r"^\S+:\d+$", trimmed):
         return True
     return False
