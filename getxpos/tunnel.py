@@ -32,7 +32,7 @@ class XposTunnel:
         self.subdomain = subdomain
         self.domain = domain
         self.mode = mode
-        self.server = server
+        self.server = server or DEFAULT_SERVER
 
         self.url = None
         self.expires_at = None
